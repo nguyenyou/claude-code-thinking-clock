@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Giờ Vàng Tư Duy — Bản đồ năng lực suy luận theo giờ Việt Nam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,300;1,9..144,400;1,9..144,500;1,9..144,700&family=IBM+Plex+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --paper:        #efe5d0;
+  --paper-warm:   #e8dbbe;
+  --paper-deep:   #ddcfa8;
+  --ink:          #1a1f3a;
+  --ink-2:        #3d4263;
+  --ink-3:        #6f7596;
+  --gold:         #b8860b;
+  --gold-bright:  #d4a017;
+  --gold-soft:    #e8c46a;
+  --crimson:      #8b1e2d;
+  --crimson-soft: #b35d4f;
+  --line:         rgba(26, 31, 58, 0.22);
+  --line-soft:    rgba(26, 31, 58, 0.10);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Fraunces', Georgia, serif;
+  font-feature-settings: "ss01", "kern", "liga", "onum";
+  font-variation-settings: "opsz" 14;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  line-height: 1.5;
+}
+
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 80% 60% at 18% 0%, rgba(184, 134, 11, 0.10), transparent 60%),
+    radial-gradient(ellipse 100% 80% at 82% 100%, rgba(139, 30, 45, 0.07), transparent 60%);
+  z-index: 1;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.10 0 0 0 0 0.12 0 0 0 0 0.22 0 0 0 0.4 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  z-index: 2;
+}
+
+main, header, footer { position: relative; z-index: 3; }
+
+/* ─────────── MASTHEAD ─────────── */
+
+.masthead {
+  border-bottom: 1px solid var(--ink);
+  padding: 18px 48px 14px;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: var(--ink);
+  animation: fadeDown 0.7s ease both;
+}
+
+.masthead-left { display: flex; align-items: center; gap: 14px; }
+
+.masthead-mark {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, var(--gold-soft), var(--gold) 55%, var(--crimson) 100%);
+  box-shadow: 0 0 0 1px var(--ink), 0 0 0 3px var(--paper);
+}
+
+.masthead-center {
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  opacity: 0.7;
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  text-transform: none;
+}
+
+/* ─────────── HERO ─────────── */
+
+.hero {
+  padding: 88px 48px 48px;
+  max-width: 1320px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hero-eyebrow {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--gold);
+  margin-bottom: 28px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  animation: fadeUp 0.8s 0.1s ease both;
+}
+
+.hero-eyebrow::before {
+  content: '';
+  flex: 0 0 56px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.hero-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144, "SOFT" 30;
+  font-weight: 900;
+  font-size: clamp(4.2rem, 14vw, 12rem);
+  line-height: 0.84;
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  margin-bottom: 36px;
+  animation: fadeUp 1s 0.2s ease both;
+}
+
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--gold);
+  font-variation-settings: "opsz" 144, "SOFT" 100;
+  display: inline-block;
+  position: relative;
+}
+
+.hero-title em::after {
+  content: '';
+  position: absolute;
+  left: -8px; right: -8px;
+  bottom: 0.18em;
+  height: 4px;
+  background: var(--paper);
+  z-index: -1;
+}
+
+.hero-deck {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 24;
+  font-size: clamp(1.05rem, 1.55vw, 1.4rem);
+  font-style: italic;
+  color: var(--ink-2);
+  max-width: 720px;
+  line-height: 1.55;
+  border-left: 2px solid var(--gold);
+  padding-left: 24px;
+  animation: fadeUp 1s 0.4s ease both;
+}
+
+.hero-meta {
+  display: grid;
+  grid-template-columns: repeat(4, auto);
+  gap: 48px;
+  margin-top: 64px;
+  font-family: 'IBM Plex Mono', monospace;
+  animation: fadeUp 1s 0.6s ease both;
+  border-top: 1px solid var(--line);
+  padding-top: 28px;
+  width: fit-content;
+}
+
+.hero-meta dt {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+
+.hero-meta dd {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 36;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+/* ─────────── CHART ─────────── */
+
+.chart-section {
+  padding: 64px 48px 32px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.chart-frame {
+  display: grid;
+  grid-template-columns: 1fr min(620px, 80vw) 1fr;
+  gap: 56px;
+  align-items: start;
+}
+
+.chart-aside {
+  padding-top: 64px;
+}
+
+.chart-aside-l { text-align: right; }
+
+.chart-aside h3 {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 36;
+  font-weight: 600;
+  font-size: 14px;
+  font-style: italic;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.005em;
+}
+
+.chart-aside h3::before {
+  content: '§ ';
+  color: var(--gold);
+  font-style: normal;
+  font-weight: 400;
+}
+
+.chart-aside p {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 14;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin-bottom: 28px;
+}
+
+.chart-stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.chart-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.chart-center-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  text-align: center;
+}
+
+.chart-center-text .label {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.32em;
+  color: var(--ink-3);
+  margin-bottom: 6px;
+}
+
+.chart-center-text .value {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 36px;
+  line-height: 1;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.chart-center-text .tier {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  padding: 4px 12px;
+  border: 1px solid currentColor;
+  border-radius: 100px;
+  white-space: nowrap;
+}
+
+.chart-legend {
+  margin: 40px auto 0;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 28px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink-2);
+  border-top: 1px solid var(--line-soft);
+  padding-top: 24px;
+  max-width: 880px;
+}
+
+.chart-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-legend-swatch {
+  width: 14px; height: 14px;
+  border: 1px solid var(--ink);
+  display: inline-block;
+}
+
+/* ─────────── SECTION HEADERS ─────────── */
+
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 28px;
+  margin-bottom: 56px;
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+}
+
+.section-number {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: var(--ink-3);
+  text-transform: uppercase;
+  white-space: nowrap;
+  padding-top: 8px;
+}
+
+.section-title {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 96;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  max-width: 800px;
+}
+
+/* ─────────── FINDINGS ─────────── */
+
+.findings {
+  padding: 56px 48px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.findings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--ink);
+}
+
+.finding {
+  background: var(--paper);
+  padding: 40px 32px 44px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: background 0.5s ease;
+}
+
+.finding:hover { background: var(--paper-warm); }
+
+.finding-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.finding-tag::before {
+  content: '';
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  border: 1px solid currentColor;
+}
+
+.finding--gold .finding-tag { color: var(--gold); }
+.finding--gold .finding-tag::before { background: var(--gold-bright); }
+
+.finding--peak .finding-tag { color: var(--gold); }
+.finding--peak .finding-tag::before {
+  background: var(--gold-bright);
+  box-shadow: 0 0 0 3px rgba(212, 160, 23, 0.18);
+}
+
+.finding--warn .finding-tag { color: var(--crimson); }
+.finding--warn .finding-tag::before { background: var(--crimson); }
+
+.finding-time {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 4vw, 3.4rem);
+  line-height: 1;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.finding-time .colon { color: var(--ink-3); }
+.finding--warn .finding-time { color: var(--crimson); }
+.finding--warn .finding-time .colon { color: var(--crimson-soft); }
+
+.finding-window {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 24;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-3);
+  margin-bottom: 28px;
+  padding-bottom: 24px;
+  border-bottom: 1px dotted var(--line);
+}
+
+.finding-name {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 36;
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+  color: var(--ink);
+  letter-spacing: -0.005em;
+}
+
+.finding-body {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 14;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  flex-grow: 1;
+}
+
+.finding-stat {
+  margin-top: 28px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.finding-stat strong {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 60;
+  font-weight: 500;
+  font-size: 22px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  font-feature-settings: "tnum";
+}
+
+.finding--gold .finding-stat strong,
+.finding--peak .finding-stat strong { color: var(--gold); }
+.finding--warn .finding-stat strong { color: var(--crimson); }
+
+/* ─────────── SCHEDULE ─────────── */
+
+.schedule {
+  padding: 56px 48px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.schedule-table th {
+  text-align: left;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  color: var(--ink-3);
+  padding: 16px 24px 14px 0;
+  border-bottom: 1px solid var(--ink);
+}
+
+.schedule-table td {
+  padding: 32px 24px 32px 0;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+
+.schedule-table tr:last-child td { border-bottom: none; }
+
+.schedule-table tbody tr {
+  transition: background 0.3s ease;
+}
+
+.schedule-table tbody tr:hover { background: rgba(184, 134, 11, 0.04); }
+
+.sched-time {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 60;
+  font-size: 1.7rem;
+  font-weight: 500;
+  color: var(--ink);
+  white-space: nowrap;
+  width: 240px;
+  letter-spacing: -0.015em;
+  font-feature-settings: "tnum";
+}
+
+.sched-tier {
+  width: 160px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.sched-tier-bar {
+  height: 3px;
+  background: var(--line);
+  margin-top: 10px;
+  position: relative;
+  max-width: 110px;
+}
+
+.sched-tier-bar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  width: var(--tier);
+  background: var(--ink);
+}
+
+.tier-best { color: var(--gold); }
+.tier-best .sched-tier-bar::before { background: var(--gold-bright); }
+.tier-good { color: var(--ink-2); }
+.tier-good .sched-tier-bar::before { background: var(--ink-2); }
+.tier-mid { color: var(--ink-3); }
+.tier-mid .sched-tier-bar::before { background: var(--ink-3); }
+.tier-bad { color: var(--crimson); }
+.tier-bad .sched-tier-bar::before { background: var(--crimson); }
+
+.sched-task {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 18;
+  font-size: 1.05rem;
+  line-height: 1.5;
+  color: var(--ink);
+  font-weight: 500;
+}
+
+.sched-task em {
+  display: block;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.92rem;
+  color: var(--ink-3);
+  margin-top: 6px;
+  font-variation-settings: "opsz" 18;
+}
+
+/* ─────────── WHY ─────────── */
+
+.why {
+  padding: 56px 48px 80px;
+  max-width: 1320px;
+  margin: 0 auto;
+}
+
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 80px;
+}
+
+.why-display {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+  font-weight: 400;
+  font-style: italic;
+  font-size: clamp(2.4rem, 5vw, 4.4rem);
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  position: sticky;
+  top: 32px;
+  align-self: start;
+}
+
+.why-display .accent {
+  color: var(--gold);
+  font-weight: 300;
+}
+
+.why-body {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 18;
+  font-size: 1.08rem;
+  line-height: 1.7;
+  color: var(--ink-2);
+  max-width: 60ch;
+}
+
+.why-body p { margin-bottom: 22px; }
+
+.why-body strong {
+  color: var(--ink);
+  font-weight: 600;
+  font-variation-settings: "opsz" 18;
+}
+
+.why-body code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85em;
+  background: rgba(26, 31, 58, 0.06);
+  padding: 1px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+
+.why-pull {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 60;
+  font-style: italic;
+  font-size: 1.5rem !important;
+  line-height: 1.35;
+  color: var(--gold) !important;
+  border-left: 3px solid var(--gold);
+  padding-left: 24px;
+  margin: 32px 0 32px !important;
+}
+
+.why-pull::before {
+  content: '"';
+  font-family: 'Fraunces', serif;
+  font-size: 2.5rem;
+  line-height: 0;
+  vertical-align: -0.4em;
+  margin-right: 4px;
+  font-style: normal;
+}
+
+/* ─────────── FOOTER ─────────── */
+
+footer {
+  margin-top: 64px;
+  padding: 56px 48px 48px;
+  border-top: 1px solid var(--ink);
+  background: rgba(26, 31, 58, 0.035);
+}
+
+.footer-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 64px;
+  align-items: start;
+}
+
+.footer-meth h4 {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.footer-meth p {
+  font-family: 'Fraunces', serif;
+  font-variation-settings: "opsz" 14;
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 65ch;
+}
+
+.footer-meth code {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 0.85em;
+  background: rgba(26, 31, 58, 0.06);
+  padding: 1px 6px;
+  border-radius: 2px;
+  color: var(--ink);
+}
+
+.footer-stats {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--ink-3);
+}
+
+.footer-stats h4 {
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.24em;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.footer-stats div {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  border-bottom: 1px dotted var(--line);
+  gap: 16px;
+}
+
+.footer-stats div:last-child { border: none; }
+
+.footer-stats span:last-child {
+  color: var(--ink);
+  font-weight: 500;
+  font-feature-settings: "tnum";
+}
+
+.footer-mark {
+  margin-top: 40px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+
+.footer-mark span:last-child {
+  font-style: italic;
+  font-family: 'Fraunces', serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  text-transform: none;
+  color: var(--ink-2);
+}
+
+/* ─────────── ANIMATIONS ─────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeDown {
+  from { opacity: 0; transform: translateY(-12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes wedgeIn {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes drift {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-3px); }
+}
+
+.bar-wedge {
+  transform-origin: 300px 300px;
+  animation: wedgeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+#nowHand, #nowDot, #nowLabel {
+  opacity: 0;
+  animation: fadeUp 0.8s 1.4s ease both;
+}
+
+#nowDot {
+  animation-name: fadeUp, drift;
+  animation-duration: 0.8s, 4s;
+  animation-delay: 1.4s, 2.2s;
+  animation-timing-function: ease, ease-in-out;
+  animation-iteration-count: 1, infinite;
+  animation-fill-mode: both, both;
+}
+
+/* ─────────── RESPONSIVE ─────────── */
+
+@media (max-width: 1080px) {
+  .chart-frame {
+    grid-template-columns: 1fr;
+    gap: 32px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .chart-aside { padding-top: 0; }
+  .chart-aside-l { text-align: left; }
+  .why-grid { grid-template-columns: 1fr; gap: 32px; }
+  .why-display { position: static; }
+  .findings-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .hero-meta { grid-template-columns: 1fr 1fr; gap: 28px 48px; }
+}
+
+@media (max-width: 640px) {
+  .masthead { padding: 14px 24px 12px; flex-wrap: wrap; gap: 8px; }
+  .masthead-center { display: none; }
+  .hero, .chart-section, .findings, .schedule, .why, footer {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+  .hero { padding-top: 56px; }
+  .section-header { flex-direction: column; gap: 8px; }
+  .schedule-table thead { display: none; }
+  .schedule-table tr {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .schedule-table td {
+    padding: 0;
+    width: 100%;
+    border: none;
+  }
+  .sched-time { width: auto; font-size: 1.5rem; }
+  .sched-tier-bar { max-width: 140px; }
+}
+</style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="masthead-left">
+    <span class="masthead-mark"></span>
+    <span>Almanac · Số I</span>
+  </div>
+  <div class="masthead-center">Bản đồ thiên văn của trí tuệ nhân tạo</div>
+  <div>MMXXVI · ICT (UTC+7)</div>
+</header>
+
+<main>
+
+<!-- ───── HERO ───── -->
+<section class="hero">
+  <div class="hero-eyebrow">Khảo sát hai mươi tư giờ</div>
+  <h1 class="hero-title">Giờ Vàng<br><em>Tư Duy</em></h1>
+  <p class="hero-deck">
+    Bản đồ năng lực suy luận của Claude theo từng khung giờ trong ngày — đo bằng giờ Đông Dương. Khi nào nên dồn sức cho công việc phức tạp, và khi nào nên buông tay nghỉ ngơi.
+  </p>
+
+  <dl class="hero-meta">
+    <div>
+      <dt>Nguồn dữ liệu</dt>
+      <dd>6.852 phiên</dd>
+    </div>
+    <div>
+      <dt>Múi giờ</dt>
+      <dd>ICT · UTC+7</dd>
+    </div>
+    <div>
+      <dt>Đỉnh vàng</dt>
+      <dd>20:00 — 22:00</dd>
+    </div>
+    <div>
+      <dt>Vực sâu</dt>
+      <dd>08:00 — 12:00</dd>
+    </div>
+  </dl>
+</section>
+
+<!-- ───── CHART ───── -->
+<section class="chart-section">
+  <div class="chart-frame">
+    <aside class="chart-aside chart-aside-l">
+      <h3>Chiều sâu suy luận</h3>
+      <p>Mỗi nan quạt biểu thị độ dài trung vị của khối suy luận tại một giờ trong ngày. Càng dài, càng sâu.</p>
+      <h3>Thang đo</h3>
+      <p>Đơn vị ký tự — ước lượng từ độ dài chữ ký mã hoá khối suy luận, tương quan Pearson 0,971 với độ dài thật.</p>
+    </aside>
+
+    <div class="chart-stage">
+      <svg class="chart-svg" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <radialGradient id="goldGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#e8c46a" stop-opacity="0.85"/>
+            <stop offset="100%" stop-color="#b8860b" stop-opacity="0.95"/>
+          </radialGradient>
+          <filter id="softGlow" x="-50%" y="-50%" width="200%" height="200%">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge>
+              <feMergeNode in="blur"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+        </defs>
+
+        <circle cx="300" cy="300" r="240" fill="none" stroke="rgba(26,31,58,0.18)" stroke-width="0.6"/>
+        <circle cx="300" cy="300" r="200" fill="none" stroke="rgba(26,31,58,0.07)" stroke-width="0.4" stroke-dasharray="2 4"/>
+        <circle cx="300" cy="300" r="160" fill="none" stroke="rgba(26,31,58,0.07)" stroke-width="0.4" stroke-dasharray="2 4"/>
+        <circle cx="300" cy="300" r="120" fill="none" stroke="rgba(26,31,58,0.07)" stroke-width="0.4" stroke-dasharray="2 4"/>
+        <circle cx="300" cy="300" r="80" fill="none" stroke="rgba(26,31,58,0.18)" stroke-width="0.6"/>
+
+        <g id="bars"></g>
+        <g id="markers"></g>
+        <g id="now-layer"></g>
+
+        <circle cx="300" cy="300" r="2.5" fill="#1a1f3a"/>
+      </svg>
+
+      <div class="chart-center-text">
+        <div class="label">Bây giờ tại Việt Nam</div>
+        <div class="value" id="nowTime">—:—</div>
+        <div class="tier" id="nowTier" style="color: var(--ink-3)">đang tải</div>
+      </div>
+    </div>
+
+    <aside class="chart-aside chart-aside-r">
+      <h3>Hai đỉnh vàng</h3>
+      <p>21:00 ICT — đỉnh tuyệt đối của ngày, đúng lúc bờ Tây Hoa Kỳ chưa thức giấc. 14:00 ICT — đỉnh giữa trưa khi bờ Đông đã ngủ.</p>
+      <h3>Hai vực sâu</h3>
+      <p>10:00 và 08:00 ICT là hai khung giờ mỏng nhất, trùng khít với giờ cao điểm tiêu dùng internet tại Hoa Kỳ.</p>
+    </aside>
+  </div>
+
+  <div class="chart-legend">
+    <div class="chart-legend-item"><span class="chart-legend-swatch" style="background:#e8c46a"></span>Cực đỉnh</div>
+    <div class="chart-legend-item"><span class="chart-legend-swatch" style="background:#d4a017"></span>Đỉnh vàng</div>
+    <div class="chart-legend-item"><span class="chart-legend-swatch" style="background:#c89656"></span>Khá</div>
+    <div class="chart-legend-item"><span class="chart-legend-swatch" style="background:#b35d4f"></span>Trung bình</div>
+    <div class="chart-legend-item"><span class="chart-legend-swatch" style="background:#8b1e2d"></span>Vực sâu</div>
+    <div class="chart-legend-item"><span class="chart-legend-swatch" style="background:rgba(26,31,58,0.06); border-style:dashed"></span>Thiếu dữ liệu</div>
+  </div>
+</section>
+
+<!-- ───── FINDINGS ───── -->
+<section class="findings">
+  <div class="section-header">
+    <div class="section-number">§ I — Kết luận</div>
+    <h2 class="section-title">Hai cửa sổ vàng — và một vùng cấm.</h2>
+  </div>
+
+  <div class="findings-grid">
+
+    <article class="finding finding--gold">
+      <div class="finding-tag">Cửa sổ vàng I</div>
+      <div class="finding-time">13<span class="colon">:</span>00 — 15<span class="colon">:</span>00</div>
+      <div class="finding-window">Cửa sổ giữa trưa</div>
+      <div class="finding-name">Buổi chiều phục hồi</div>
+      <p class="finding-body">
+        Sau bữa trưa, ngân sách suy luận của Claude tăng gần gấp đôi so với buổi sáng. Đỉnh rơi vào 14:00 ICT — thời điểm bờ Đông Hoa Kỳ đã ngủ và bờ Tây chưa kịp đẩy tải lên hệ thống. Đây là khung giờ lý tưởng cho refactor lớn, kiến trúc, và những bài toán đòi hỏi nhiều bước lập luận.
+      </p>
+      <div class="finding-stat">
+        <span>Chiều sâu trung vị</span>
+        <strong>≈ 988</strong>
+      </div>
+    </article>
+
+    <article class="finding finding--peak">
+      <div class="finding-tag">Cửa sổ vàng II</div>
+      <div class="finding-time">20<span class="colon">:</span>00 — 22<span class="colon">:</span>00</div>
+      <div class="finding-window">Cửa sổ ban đêm</div>
+      <div class="finding-name">Đỉnh tuyệt đối của ngày</div>
+      <p class="finding-body">
+        Đỉnh cao nhất trong toàn bộ dữ liệu rơi vào 21:00 ICT — gần gấp năm lần các giờ tệ nhất. Đó là khoảnh khắc yên tĩnh trước khi bờ Tây Hoa Kỳ thức dậy. Nếu bạn cần Claude suy nghĩ thật sâu về một vấn đề duy nhất, đây là cửa sổ không thể bỏ lỡ.
+      </p>
+      <div class="finding-stat">
+        <span>Chiều sâu trung vị</span>
+        <strong>≈ 1 704</strong>
+      </div>
+    </article>
+
+    <article class="finding finding--warn">
+      <div class="finding-tag">Vùng cấm</div>
+      <div class="finding-time">08<span class="colon">:</span>00 — 12<span class="colon">:</span>00</div>
+      <div class="finding-window">Buổi sáng chết</div>
+      <div class="finding-name">Bốn tiếng tệ nhất ngày</div>
+      <p class="finding-body">
+        Toàn bộ buổi sáng làm việc tại Việt Nam rơi đúng vào giờ cao điểm tối của Hoa Kỳ. 10:00 và 08:00 ICT là hai khung giờ mỏng nhất trong dataset — chỉ bằng một phần tư đỉnh ban đêm. Hãy dành sáng cho việc đọc, trả lời email, hội họp — những việc nông không đòi hỏi suy luận sâu.
+      </p>
+      <div class="finding-stat">
+        <span>Chiều sâu trung vị</span>
+        <strong>≈ 373</strong>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ───── SCHEDULE ───── -->
+<section class="schedule">
+  <div class="section-header">
+    <div class="section-number">§ II — Lịch trình</div>
+    <h2 class="section-title">Một ngày làm việc đề xuất.</h2>
+  </div>
+
+  <table class="schedule-table">
+    <thead>
+      <tr>
+        <th>Khung giờ</th>
+        <th>Mức độ</th>
+        <th>Việc nên làm</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="sched-time">06:00 — 08:00</td>
+        <td class="sched-tier tier-good">Trung bình<div class="sched-tier-bar" style="--tier:55%"></div></td>
+        <td class="sched-task">Lập kế hoạch ngày, đọc tài liệu, viết spec<em>Việc cần đầu óc tỉnh táo nhưng không cần Claude suy nghĩ sâu</em></td>
+      </tr>
+      <tr>
+        <td class="sched-time">08:00 — 12:00</td>
+        <td class="sched-tier tier-bad">Tránh né<div class="sched-tier-bar" style="--tier:18%"></div></td>
+        <td class="sched-task">Hội họp, trả lời tin nhắn, xử lý email, code review tay<em>Vùng cấm cho công việc phức tạp — Claude đang ở mức yếu nhất trong ngày</em></td>
+      </tr>
+      <tr>
+        <td class="sched-time">12:00 — 13:00</td>
+        <td class="sched-tier tier-mid">Nghỉ trưa<div class="sched-tier-bar" style="--tier:25%"></div></td>
+        <td class="sched-task">Ăn trưa, đi bộ, rời khỏi bàn phím<em>Hệ thống đang chuyển ca — bạn cũng nên chuyển ca</em></td>
+      </tr>
+      <tr>
+        <td class="sched-time">13:00 — 15:00</td>
+        <td class="sched-tier tier-best">Đỉnh vàng<div class="sched-tier-bar" style="--tier:85%"></div></td>
+        <td class="sched-task">Refactor lớn, kiến trúc, debug khó, thuật toán<em>Cửa sổ phục hồi — đỉnh ở 14:00, gần gấp đôi buổi sáng</em></td>
+      </tr>
+      <tr>
+        <td class="sched-time">15:00 — 19:00</td>
+        <td class="sched-tier tier-good">Khá<div class="sched-tier-bar" style="--tier:65%"></div></td>
+        <td class="sched-task">Code chính, viết test, làm việc với agent đa luồng<em>Khung giờ ổn định, đáng tin cậy cho công việc đều đặn</em></td>
+      </tr>
+      <tr>
+        <td class="sched-time">20:00 — 22:00</td>
+        <td class="sched-tier tier-best">Cực đỉnh<div class="sched-tier-bar" style="--tier:100%"></div></td>
+        <td class="sched-task">Bài toán khó nhất, suy luận đa bước, công việc bạn đã trì hoãn cả tuần<em>Đỉnh tuyệt đối — 21:00 là giờ vàng nhất ngày</em></td>
+      </tr>
+      <tr>
+        <td class="sched-time">22:00 — 06:00</td>
+        <td class="sched-tier tier-mid">Đêm muộn<div class="sched-tier-bar" style="--tier:50%"></div></td>
+        <td class="sched-task">Ngủ. Hoặc đọc sách<em>Có một dip nhẹ quanh 22-23:00, khi bờ Tây Mỹ chuẩn bị vào ca</em></td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ───── WHY ───── -->
+<section class="why">
+  <div class="section-header">
+    <div class="section-number">§ III — Diễn giải</div>
+    <h2 class="section-title">Vì sao đồng hồ lại quan trọng.</h2>
+  </div>
+
+  <div class="why-grid">
+    <div class="why-display">
+      Đồng hồ<br>của <span class="accent">hạ tầng</span>,<br>không phải<br>của bạn.
+    </div>
+
+    <div class="why-body">
+      <p>
+        Mô hình ngôn ngữ lớn không có cảm giác về thời gian. Claude không biết bây giờ là tám giờ sáng hay chín giờ tối. Thế nhưng <strong>chiều sâu suy luận của nó vẫn dao động theo giờ trong ngày</strong> — và biên độ dao động hậu kỳ giảm trừ thinking lớn gấp ba lần biên độ ban đầu.
+      </p>
+
+      <p class="why-pull">
+        Chỉ có hạ tầng mới biết bây giờ là mấy giờ. Khách hàng không biết, mô hình không biết. Cụm GPU thì biết.
+      </p>
+
+      <p>
+        Lý do hợp lý nhất: <strong>điều phối tải động</strong>. Khi cụm GPU chịu áp lực, hệ thống có thể giới hạn ngân sách suy luận của mỗi yêu cầu — kéo trần <code>budget_tokens</code> xuống tại tầng nhập, hoặc ép token kết thúc suy luận sớm tại tầng sampler. Cả hai đều rẻ để triển khai, vô hình với người dùng, và hoàn toàn nằm trong giới hạn hợp đồng API — vì <code>budget_tokens</code> được định nghĩa là giá trị tối đa, không phải đảm bảo.
+      </p>
+
+      <p>
+        Hai vực sâu rơi vào <strong>17:00 và 19:00 PST</strong> — không phải giờ làm việc của doanh nghiệp Mỹ, mà là giờ cao điểm tiêu dùng internet. Hai đỉnh rơi vào những khoảnh khắc bờ Tây hoặc bờ Đông Hoa Kỳ đang ngủ. Đây là dấu vân tay của một hệ thống bị giới hạn bởi GPU, không phải bởi chính sách người dùng.
+      </p>
+
+      <p>
+        Đối với một kỹ sư làm việc tại Việt Nam, hệ quả khá tàn nhẫn: <strong>buổi sáng làm việc của bạn rơi đúng vào giờ tệ nhất của Claude</strong>. Nhưng buổi chiều và buổi tối lại là khoảng thời gian Claude mạnh nhất toàn cầu. Nếu lịch trình cho phép, hãy đảo ngược thói quen — dành sáng cho việc nông, chiều và tối cho việc sâu.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-meth">
+      <h4>Phương pháp</h4>
+      <p>
+        Phân tích dựa trên 6.852 tệp phiên Claude Code (.jsonl) thu thập từ tháng Một đến tháng Tư năm 2026, gồm 17.871 khối suy luận và 234.760 lệnh gọi công cụ. Sau khi nội dung suy luận bị che khuất bởi tiêu đề <code>redact-thinking-2026-02-12</code>, độ sâu được ước lượng từ độ dài chữ ký mã hoá — tương quan Pearson 0,971 trên 7.146 mẫu cặp. Số liệu gốc theo giờ PST (UTC−8); chuyển đổi sang giờ ICT (UTC+7) bằng công thức <code>ICT = PST + 15</code>. Bốn giờ ICT (16–20h) thiếu dữ liệu trong dataset gốc và được biểu thị bằng nan quạt rỗng có nét đứt.
+      </p>
+    </div>
+
+    <div class="footer-stats">
+      <h4>Số liệu thô</h4>
+      <div><span>Phiên</span><span>6 852</span></div>
+      <div><span>Khối suy luận</span><span>17 871</span></div>
+      <div><span>Lệnh gọi công cụ</span><span>234 760</span></div>
+      <div><span>Tương quan</span><span>r = 0,971</span></div>
+      <div><span>Phiên bản</span><span>I · MMXXVI</span></div>
+    </div>
+  </div>
+
+  <div class="footer-mark" style="max-width: 1320px; margin: 40px auto 0;">
+    <span>Đặt tại Hà Nội</span>
+    <span>Một bản đồ thiên văn cho người làm việc cùng máy.</span>
+  </div>
+</footer>
+
+<script>
+(function() {
+  const data = [
+    { h:  0, v:  598 }, { h:  1, v:  538 }, { h:  2, v:  488 }, { h:  3, v:  656 },
+    { h:  4, v:  825 }, { h:  5, v:  577 }, { h:  6, v:  601 }, { h:  7, v:  674 },
+    { h:  8, v:  423 }, { h:  9, v:  482 }, { h: 10, v:  373 }, { h: 11, v:  468 },
+    { h: 12, v:  411 }, { h: 13, v:  759 }, { h: 14, v:  988 }, { h: 15, v:  736 },
+    { h: 16, v: null }, { h: 17, v: null }, { h: 18, v: null }, { h: 19, v: null },
+    { h: 20, v: null }, { h: 21, v: 1704 }, { h: 22, v:  441 }, { h: 23, v:  647 }
+  ];
+
+  const cx = 300, cy = 300;
+  const innerR = 80;
+  const maxR   = 240;
+  const maxVal = 1800;
+  const svgNS = 'http://www.w3.org/2000/svg';
+
+  const bars    = document.getElementById('bars');
+  const markers = document.getElementById('markers');
+  const nowLayer = document.getElementById('now-layer');
+
+  function colorFor(v) {
+    if (v === null) return { fill: 'rgba(26,31,58,0.05)', stroke: 'rgba(26,31,58,0.28)', dash: '2 3' };
+    if (v < 480)    return { fill: '#8b1e2d', stroke: '#5a141f' };
+    if (v < 600)    return { fill: '#b35d4f', stroke: '#7a3027' };
+    if (v < 800)    return { fill: '#c89656', stroke: '#7c5b25' };
+    if (v < 1100)   return { fill: '#d4a017', stroke: '#7c5b25' };
+    return            { fill: 'url(#goldGlow)', stroke: '#7c5b25' };
+  }
+
+  // Draw bars
+  data.forEach((d, i) => {
+    const angle = (d.h * 15 - 90) * Math.PI / 180;
+    const half  = (15 * 0.42) * Math.PI / 180;
+    const startA = angle - half;
+    const endA   = angle + half;
+
+    const norm = d.v === null ? 0.45 : Math.min(d.v / maxVal, 1);
+    const r = innerR + (maxR - innerR) * norm;
+
+    const x1 = cx + innerR * Math.cos(startA);
+    const y1 = cy + innerR * Math.sin(startA);
+    const x2 = cx + r * Math.cos(startA);
+    const y2 = cy + r * Math.sin(startA);
+    const x3 = cx + r * Math.cos(endA);
+    const y3 = cy + r * Math.sin(endA);
+    const x4 = cx + innerR * Math.cos(endA);
+    const y4 = cy + innerR * Math.sin(endA);
+
+    const path = `M ${x1.toFixed(2)} ${y1.toFixed(2)} L ${x2.toFixed(2)} ${y2.toFixed(2)} A ${r.toFixed(2)} ${r.toFixed(2)} 0 0 1 ${x3.toFixed(2)} ${y3.toFixed(2)} L ${x4.toFixed(2)} ${y4.toFixed(2)} A ${innerR} ${innerR} 0 0 0 ${x1.toFixed(2)} ${y1.toFixed(2)} Z`;
+
+    const col = colorFor(d.v);
+    const wedge = document.createElementNS(svgNS, 'path');
+    wedge.setAttribute('d', path);
+    wedge.setAttribute('fill', col.fill);
+    wedge.setAttribute('stroke', col.stroke);
+    wedge.setAttribute('stroke-width', '0.8');
+    if (col.dash) wedge.setAttribute('stroke-dasharray', col.dash);
+    if (d.h === 21) wedge.setAttribute('filter', 'url(#softGlow)');
+    wedge.classList.add('bar-wedge');
+    wedge.style.animationDelay = (0.025 * i + 0.4) + 's';
+    wedge.setAttribute('data-hour', d.h);
+    bars.appendChild(wedge);
+  });
+
+  // Hour labels and ticks
+  for (let h = 0; h < 24; h++) {
+    const angle = (h * 15 - 90) * Math.PI / 180;
+    const major = h % 6 === 0;
+    const lr = 260;
+    const lx = cx + lr * Math.cos(angle);
+    const ly = cy + lr * Math.sin(angle) + 3.5;
+
+    const text = document.createElementNS(svgNS, 'text');
+    text.setAttribute('x', lx.toFixed(1));
+    text.setAttribute('y', ly.toFixed(1));
+    text.setAttribute('text-anchor', 'middle');
+    text.setAttribute('font-family', "'IBM Plex Mono', monospace");
+    text.setAttribute('font-size', major ? '12' : '10');
+    text.setAttribute('font-weight', major ? '600' : '400');
+    text.setAttribute('fill', major ? '#1a1f3a' : '#6f7596');
+    text.setAttribute('letter-spacing', '0.5');
+    text.textContent = String(h).padStart(2, '0');
+    markers.appendChild(text);
+
+    const tx1 = cx + 240 * Math.cos(angle);
+    const ty1 = cy + 240 * Math.sin(angle);
+    const tx2 = cx + (major ? 248 : 244) * Math.cos(angle);
+    const ty2 = cy + (major ? 248 : 244) * Math.sin(angle);
+    const tick = document.createElementNS(svgNS, 'line');
+    tick.setAttribute('x1', tx1.toFixed(1));
+    tick.setAttribute('y1', ty1.toFixed(1));
+    tick.setAttribute('x2', tx2.toFixed(1));
+    tick.setAttribute('y2', ty2.toFixed(1));
+    tick.setAttribute('stroke', major ? '#1a1f3a' : '#6f7596');
+    tick.setAttribute('stroke-width', major ? '1.2' : '0.5');
+    markers.appendChild(tick);
+  }
+
+  // Tier classification
+  function tierFor(h) {
+    if (h >= 8 && h < 12)  return { label: 'Vực sâu',   color: '#8b1e2d' };
+    if (h === 12)          return { label: 'Chuyển ca', color: '#6f7596' };
+    if (h >= 13 && h < 15) return { label: 'Đỉnh vàng', color: '#b8860b' };
+    if (h >= 15 && h < 19) return { label: 'Khá',        color: '#3d4263' };
+    if (h >= 19 && h < 22) return { label: 'Cực đỉnh',   color: '#b8860b' };
+    if (h >= 22)           return { label: 'Đêm muộn',   color: '#6f7596' };
+    return                       { label: 'Trung bình', color: '#3d4263' };
+  }
+
+  // "Now" hand and label
+  function drawNow() {
+    const now = new Date();
+    const ictMs = (now.getUTCHours() * 60 + now.getUTCMinutes()) + 7 * 60;
+    const ictHourFloat = (ictMs / 60) % 24;
+    const ictHour = Math.floor(ictHourFloat);
+    const ictMin  = Math.floor((ictHourFloat - ictHour) * 60);
+
+    const angle = (ictHourFloat * 15 - 90) * Math.PI / 180;
+
+    nowLayer.innerHTML = '';
+
+    const x1 = cx + 70 * Math.cos(angle);
+    const y1 = cy + 70 * Math.sin(angle);
+    const x2 = cx + 245 * Math.cos(angle);
+    const y2 = cy + 245 * Math.sin(angle);
+
+    const hand = document.createElementNS(svgNS, 'line');
+    hand.setAttribute('id', 'nowHand');
+    hand.setAttribute('x1', x1.toFixed(1));
+    hand.setAttribute('y1', y1.toFixed(1));
+    hand.setAttribute('x2', x2.toFixed(1));
+    hand.setAttribute('y2', y2.toFixed(1));
+    hand.setAttribute('stroke', '#1a1f3a');
+    hand.setAttribute('stroke-width', '1.4');
+    hand.setAttribute('stroke-linecap', 'round');
+    nowLayer.appendChild(hand);
+
+    const dot = document.createElementNS(svgNS, 'circle');
+    dot.setAttribute('id', 'nowDot');
+    dot.setAttribute('cx', x2.toFixed(1));
+    dot.setAttribute('cy', y2.toFixed(1));
+    dot.setAttribute('r', '4');
+    dot.setAttribute('fill', '#b8860b');
+    dot.setAttribute('stroke', '#1a1f3a');
+    dot.setAttribute('stroke-width', '0.8');
+    nowLayer.appendChild(dot);
+
+    const lblR = 282;
+    const lx = cx + lblR * Math.cos(angle);
+    const ly = cy + lblR * Math.sin(angle) + 3;
+    const cosA = Math.cos(angle);
+    const anchor = cosA > 0.35 ? 'start' : (cosA < -0.35 ? 'end' : 'middle');
+
+    const lbl = document.createElementNS(svgNS, 'text');
+    lbl.setAttribute('id', 'nowLabel');
+    lbl.setAttribute('x', lx.toFixed(1));
+    lbl.setAttribute('y', ly.toFixed(1));
+    lbl.setAttribute('text-anchor', anchor);
+    lbl.setAttribute('font-family', "'Fraunces', serif");
+    lbl.setAttribute('font-size', '13');
+    lbl.setAttribute('font-style', 'italic');
+    lbl.setAttribute('fill', '#b8860b');
+    lbl.setAttribute('font-weight', '500');
+    lbl.textContent = 'bây giờ';
+    nowLayer.appendChild(lbl);
+
+    // Update center text
+    const valEl  = document.getElementById('nowTime');
+    const tierEl = document.getElementById('nowTier');
+    if (valEl)  valEl.textContent  = String(ictHour).padStart(2, '0') + ':' + String(ictMin).padStart(2, '0');
+    if (tierEl) {
+      const t = tierFor(ictHour);
+      tierEl.textContent = t.label;
+      tierEl.style.color = t.color;
+    }
+  }
+
+  drawNow();
+  setInterval(drawNow, 30000);
+})();
+</script>
+
+</body>
+</html>
